@@ -25,7 +25,7 @@
             </div>
           </button>
 
-          <span class="md-tab-indicator" :class="indicatorClasses" ref="indicator"></span>
+          <span class="md-tab-indicator" :class="indicatorClasses" ref="indicator" v-bind:style="mdIndicatorStyle"></span>
         </div>
       </div>
 
@@ -69,7 +69,8 @@
       mdElevation: {
         type: [String, Number],
         default: 0
-      }
+      },
+      mdIndicatorStyle: Object
     },
     mixins: [theme],
     data: () => ({
@@ -90,7 +91,8 @@
       tabClasses() {
         return {
           'md-dynamic-height': this.mdDynamicHeight,
-          'md-transition-off': this.transitionOff
+          'md-transition-off': this.transitionOff,
+          'md-indicator-style': this.mdIndicatorStyle
         };
       },
       navigationClasses() {
